@@ -8,11 +8,28 @@ namespace player
 {
     internal class Wizard:Player
     {
-        public int level { get; set; }
+   private int spellPower;
+        public int SpellPower { 
+        get { return spellPower; }
+            set { if (value < 1 || value > 10)
+
+                    throw new ArgumentOutOfRangeException("not in range, must be between 1-10 ") ;
+            }
+
+        }
+
         public Wizard (string name) : base(name)
         {
-            level = 1;
+            spellPower = 1;
         }
-        
+        public void castSpell(Player enemy)
+        {
+            Console.WriteLine("Abracadabra!!!!!!!");
+            enemy.strength -= 3;
+        }
+        public override void attack(Player enemy)
+        {
+            castSpell(enemy);
+        }
     }
 }

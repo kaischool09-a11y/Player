@@ -19,11 +19,15 @@ namespace player
             this.hp = 10;
             this.strength = 100;
         }
-        public void attack(Player p2)
+        public virtual void attack(Player p2)
         {
             Console.WriteLine("heeeyaaa");
             p2.hp -= 1;
         }
+        public override string ToString()
+        {
+            return $"name: {name}, hp: {hp}, strength: {strength}";
+        }   
     }
    
 }
